@@ -2,7 +2,7 @@
 
 # variables (db must exist)
 db_name=onet_20_2
-FILES=./onet_data/db_20_2_mysql/*
+FILES=./db_20_2_mysql/*
 
 echo "Please enter mysql password for root: "
 stty -echo
