@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ONET_VERSION=20_2
+ONET_VERSION=23_1
 DB_URL=http://www.onetcenter.org/dl_files/database/db_${ONET_VERSION}_mysql.zip
 wget $DB_URL
 unzip db_${ONET_VERSION}_mysql.zip
