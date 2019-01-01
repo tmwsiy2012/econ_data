@@ -2,7 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/alpine38"
+  # must install https://github.com/maier/vagrant-alpine plugin
+  # vagrant plugin install vagrant-alpine
+  config.vm.box = "maier/alpine-3.8-x86_64"
+  config.vm.box_version = "3.8.1"
+  config.vm.network "private_network", ip: "10.10.10.10"
   
    config.vm.provision "shell", path: "provision.sh"
 end

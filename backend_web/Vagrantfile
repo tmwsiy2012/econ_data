@@ -7,13 +7,18 @@ Vagrant.configure("2") do |config|
   # This box is for serving internal data files to containers 
   # instead of hitting the internet each time a box or container is spun up
   
-  config.vm.box = "ubuntu/bionic64"
-  config.vm.hostname = "backend-web"
+    config.vm.box = "ubuntu/bionic64"
+    config.vm.hostname = "backend-web"
 
-   config.vm.network "forwarded_port", guest: 80, host: 8080
+    config.vm.network "forwarded_port", guest: 80, host: 8080
+    config.vm.network "private_network", ip: "10.10.10.11"
 
-   config.vm.provision "shell", inline: <<-SHELL     
-     apt-get install -y apache2
-	 ln -s /vagrant/tempdata /var/www/html
+    config.vm.provision "shell", inline: <<-SHELL     
+    apt-get install -y apache2
+    sed -i s+/var/www/html+/vagrant/tempdata+g /etc/apache2/sites-enabled/000-default.conf
+    sed -i s+/var/www/+/vagrant/+g /etc/apache2/apache2.conf
+    chown -R www-data.www-data /vagrant/tempdata
+    service apache2 restart
+    #ln -s /vagrant/tempdata /var/www/html
    SHELL
 end

@@ -7,12 +7,10 @@ DB_URL=http://www.onetcenter.org/dl_files/database/db_${ONET_VERSION}_mysql.zip
 OE_URL=http://download.bls.gov/pub/time.series/oe/
 
 mkdir -p ${PROJECT_ROOT}/tempdata
+rm -rf ${PROJECT_ROOT}/tempdata/*
 
 # pull onet files
 wget -q $DB_URL -P ${PROJECT_ROOT}/tempdata
-unzip ${PROJECT_ROOT}/tempdata/db_${ONET_VERSION}_mysql.zip -d ${PROJECT_ROOT}/tempdata
-mv ${PROJECT_ROOT}/tempdata/db_${ONET_VERSION}_mysql/*.sql ${PROJECT_ROOT}/tempdata
-rm -rf ${PROJECT_ROOT}/tempdata/db_${ONET_VERSION}_mysql/
 
 wget -q ${OE_URL}/oe.area -P ${PROJECT_ROOT}/tempdata
 wget -q ${OE_URL}/oe.areatype -P ${PROJECT_ROOT}/tempdata
