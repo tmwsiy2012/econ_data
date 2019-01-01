@@ -1,3 +1,6 @@
 .idea/
 .vagrant/
+tempdata/
+backend_web/tempdata/
 *.box
+*.log
