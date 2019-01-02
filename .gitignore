@@ -2,5 +2,6 @@
 .vagrant/
 tempdata/
 backend_web/tempdata/
+registry/nginx/tempdata/
 *.box
 *.log
