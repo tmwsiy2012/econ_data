@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-PROJECT_ROOT=/mnt/e/econ_data/backend_web
+PROJECT_ROOT=.
 ONET_VERSION=23_1
 DB_URL=http://www.onetcenter.org/dl_files/database/db_${ONET_VERSION}_mysql.zip
 OE_URL=http://download.bls.gov/pub/time.series/oe/
